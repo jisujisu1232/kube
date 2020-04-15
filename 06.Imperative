@@ -1,0 +1,8 @@
+kubectl run --generator run-pod/v1 --image nginx:alpine nginx-pod
+
+kubectl run --generator run-pod/v1 --image redis:alpine redis -l tier=db
+
+
+kubectl expose pod redis --port 6379 --name redis-service
+
+kubectl create deploy webapp --image kodekloud/webapp-color

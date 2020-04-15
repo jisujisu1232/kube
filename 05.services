@@ -1,0 +1,19 @@
+kubectl get svc
+
+    NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+    kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   36m
+
+kubectl describe kubernetes
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: webapp-service
+    spec:
+      type: NodePort
+      ports:
+        - targetPort: 8080
+          port: 8080
+          nodePort: 30080
+      selector:
+        name: simple-webapp

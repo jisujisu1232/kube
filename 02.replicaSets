@@ -1,3 +1,6 @@
+replicaset > pod
+이미 생성된 pod 도 포함할 수있음.
+
 kubectl get rs
 
     NAME              DESIRED   CURRENT   READY   AGE
