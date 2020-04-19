@@ -13,52 +13,6 @@ Volumes
 Events
 	히스토리
 
-		Name:         nginx
-		Namespace:    default
-		Priority:     0
-		Node:         node01/172.17.0.46
-		Start Time:   Wed, 15 Apr 2020 13:30:33 +0000
-		Labels:       run=nginx
-		Annotations:  <none>Status:       Running
-		IP:           10.88.0.3IPs:
-		  IP:  10.88.0.3
-		Containers:  nginx:
-		    Container ID:   docker://27526ddacf06024241308f943d25165bfafbf49edeef3c1f43b3cbdda4d5398a
-		    Image:          nginx
-		    Image ID:       docker-pullable://nginx@sha256:282530fcb7cd19f3848c7b611043f82ae4be3781cb00105a1d593d7e6286b596
-		    Port:           <none>
-		    Host Port:      <none>
-		    State:          Running
-		      Started:      Wed, 15 Apr 2020 13:30:40 +0000
-		    Ready:          True
-		    Restart Count:  0
-		    Environment:    <none>
-		    Mounts:
-		      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9ddz4 (ro)
-		Conditions:
-		  Type              Status  Initialized       True
-		  Ready             True
-		  ContainersReady   True  PodScheduled      True
-		Volumes:
-		  default-token-9ddz4:
-		    Type:        Secret (a volume populated by a Secret)
-		    SecretName:  default-token-9ddz4
-		    Optional:    false
-		QoS Class:       BestEffort
-		Node-Selectors:  <none>
-		Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-		                 node.kubernetes.io/unreachable:NoExecute for 300s
-		Events:
-		  Type    Reason     Age        From               Message
-		  ----    ------     ----       ----               -------
-		  Normal  Scheduled  <unknown>  default-scheduler  Successfully assigned default/nginx to node01
-		  Normal  Pulling    2m2s       kubelet, node01    Pulling image "nginx"
-		  Normal  Pulled     116s       kubelet, node01    Successfully pulled image "nginx"
-		  Normal  Created    116s       kubelet, node01    Created container nginx
-		  Normal  Started    115s       kubelet, node01    Started container nginx
-
-
-
 kubectl get pod -o wide
 
 kubectl delete pod webapp
