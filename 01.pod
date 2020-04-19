@@ -58,6 +58,7 @@ Events
 		  Normal  Started    115s       kubelet, node01    Started container nginx
 
 
+
 kubectl get pod -o wide
 
 kubectl delete pod webapp
