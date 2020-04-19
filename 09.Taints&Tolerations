@@ -1,0 +1,25 @@
+kubectl describe node node01 | grep Taints
+
+kubectl taint node node01 spray=mortein:NoSchedule
+
+
+Node
+    spec:
+      taints:
+      - effect: NoSchedule
+        key: spray
+        value: mortein
+
+Pod
+
+      containers:
+      - iamge: nginx
+        name: bee
+      tolerations:
+      - key: spray
+        value: mortein
+        operator: Equal
+        effect: NoSchedule
+
+Delete
+kubectl taint node master node-role.kubernetes.io/master:NoSchedule-

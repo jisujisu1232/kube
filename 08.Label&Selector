@@ -1,0 +1,22 @@
+kubectl get pods -o wide --selector env=dev
+
+kubectl get all -o wide --selector env=dev,bu=finance,tier=frontend
+
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset-1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
