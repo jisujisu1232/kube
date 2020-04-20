@@ -1,0 +1,38 @@
+kubectl edit pod podname
+
+spec:
+  containers:
+    - name: c1
+      ...
+    - name: c2
+      ...
+    - name: c3
+
+kubectl describe pod podname
+
+Containers:
+  c1:
+    ...
+  c2:
+    ...
+  c3:
+    ...
+
+
+kubectl exec -it podname {command}
+
+
+
+spec
+  volumes:
+  - hostPath:
+      path: /var/log/webapp
+      type: DirectoryOrCreate
+    name: log-volume123123
+
+  containers:
+  - name: c1
+    image: image
+    volumeMounts:
+    - mountPath: /var/log/event/
+      name: log-volume123123
