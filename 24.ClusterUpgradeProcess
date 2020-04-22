@@ -1,0 +1,51 @@
+kubectl get node
+
+-> version
+
+
+
+
+[Master]
+
+- kubeadm 설정
+- upgrade plan 확인
+- node drain
+- kubeadm upgrade apply v
+- kubelet upgrade
+- uncordon
+
+
+apt install kubeadm=1.17.0-00
+
+kubeadm upgrade plan
+
+kubectl drain master --ignore-daemonsets
+
+kubeadm upgrade apply v1.17.0
+
+apt install kubelet=1.17.0-00
+
+kubectl uncordon node01
+
+
+
+[Worker]
+
+- drain node01
+- ssh node01
+- kubeadm upgrade
+- kubelet upgrade
+- node config update
+- uncordon
+
+
+
+kubectl drain node01
+
+apt install kubeadm=1.17.0-00
+
+apt install kubelet=1.17.0-00
+
+kubeadm upgrade node config --kubelet-version $(kubelet --version | cut -d ' ' -f 2)
+
+kubectl uncordon node01

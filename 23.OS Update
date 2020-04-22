@@ -1,0 +1,18 @@
+kubectl cordon node01
+
+kubectl drain node01
+
+There are pending nodes to be drained:
+ node01
+error: cannot delete DaemonSet-managed Pods (use --ignore-daemonsets to ignore): kube-system/kube-proxy-qg4tb, kube-system/weave-net-s7xmn
+
+kubectl drain node01 --ignore-daemonsets
+
+
+kubectl uncordon node01
+
+
+kubectl drain
+ReplicationController, ReplicaSet, Job, DaemonSet, StatefulSet
+모든 팟 중 하나라도 위에 포함되지 않으면 강제(--force) 필요
+다른 곳에 배포되지 않음 없어짐
