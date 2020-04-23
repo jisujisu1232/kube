@@ -1,0 +1,81 @@
+```
+https://github.com/mmumshad/kubernetes-the-hard-way/blob/master/practice-questions-answers/cluster-maintenance/backup-etcd/etcd-backup-and-restore.md
+
+
+kubectl describe pod etcd-master -n kube-system
+
+
+Containers:
+  etcd:
+    Container ID:  docker://88b1b33ab5f5617120897d8ee766c47e02202068f42ada4f4a3636bf30b96d2f
+    Image:         k8s.gcr.io/etcd:3.3.15-0
+    Image ID:      docker-pullable://k8s.gcr.io/etcd@sha256:12c2c5e5731c3bcd56e6f1c05c0f9198b6f06793fa7fca2fb43aab9622dc4afa
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      etcd
+      --advertise-client-urls=https://172.17.0.18:2379
+      --cert-file=/etc/kubernetes/pki/etcd/server.crt
+      --client-cert-auth=true
+      --data-dir=/var/lib/etcd
+      --initial-advertise-peer-urls=https://172.17.0.18:2380
+      --initial-cluster=master=https://172.17.0.18:2380
+      --key-file=/etc/kubernetes/pki/etcd/server.key
+      --listen-client-urls=https://127.0.0.1:2379,https://172.17.0.18:2379
+      --listen-metrics-urls=http://127.0.0.1:2381
+      --listen-peer-urls=https://172.17.0.18:2380
+      --name=master
+      --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt
+      --peer-client-cert-auth=true
+      --peer-key-file=/etc/kubernetes/pki/etcd/peer.key
+      --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+      --snapshot-count=10000
+      --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+
+ETCDCTL_API=3 etcdctl --help
+ETCDCTL_API=3 etcdctl snapshot --help
+ETCDCTL_API=3 etcdctl snapshot save --help
+
+ETCDCTL_API=3 etcdctl \
+snapshot save /tmp/snapshot-pre-boot.db \
+--endpoints=https://127.0.0.1:2379 \
+--cacert=/etc/kubernetes/pki/etcd/ca.crt \
+--cert=/etc/kubernetes/pki/etcd/server.crt \
+--key=/etc/kubernetes/pki/etcd/server.key
+
+
+
+ETCDCTL_API=3 etcdctl snapshot restore --help
+
+ETCDCTL_API=3 etcdctl \
+snapshot restore  /tmp/snapshot-pre-boot.db \
+--data-dir=/var/lib/etcd-from-backup     \
+--name=master \
+--initial-cluster=master=https://127.0.0.1:2380 \
+--initial-advertise-peer-urls=https://127.0.0.1:2380 \
+--initial-cluster-token=etcd-cluster-1 \
+--endpoints=https://127.0.0.1:2379 \
+--cacert=/etc/kubernetes/pki/etcd/ca.crt \
+--cert=/etc/kubernetes/pki/etcd/server.crt \
+--key=/etc/kubernetes/pki/etcd/server.key
+
+
+
+--data-dir
+  데이터 위치 지정
+--name
+  etcd 이름
+--initial-cluster=master=https://127.0.0.1:2380 \
+--initial-advertise-peer-urls
+  전파 주소?
+--initial-cluster-token=etcd-cluster-1 \
+
+static pod 결로 찾아서 etcd 수정
+ps -ef | grep kubelet
+
+
+--data-dir 관련 경로 수정
+
+--initial-cluster-token=etcd-cluster-1 관련 내용 없으면 추가
+
+```

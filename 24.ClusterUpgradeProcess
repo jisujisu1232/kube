@@ -1,3 +1,4 @@
+```
 kubectl get node
 
 -> version
@@ -49,3 +50,4 @@ apt install kubelet=1.17.0-00
 kubeadm upgrade node config --kubelet-version $(kubelet --version | cut -d ' ' -f 2)
 
 kubectl uncordon node01
+```

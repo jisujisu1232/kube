@@ -1,3 +1,4 @@
+```
 kubectl describe node node01 | grep Taints
 
 kubectl taint node node01 spray=mortein:NoSchedule
@@ -23,3 +24,4 @@ Pod
 
 Delete
 kubectl taint node master node-role.kubernetes.io/master:NoSchedule-
+```

@@ -1,3 +1,4 @@
+```
 kubectl get pods
 
 kubectl run --generator run-pod/v1 --image nginx nginx
@@ -68,3 +69,4 @@ kubectl run --generator run-pod/v1 --image redis123 redis --dry-run -o yaml > re
 kubectl apply -f redis-pod.yaml
 
 kubectl edit pod redis
+```

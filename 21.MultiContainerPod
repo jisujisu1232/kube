@@ -1,3 +1,4 @@
+```
 kubectl edit pod podname
 
 spec:
@@ -36,3 +37,4 @@ spec
     volumeMounts:
     - mountPath: /var/log/event/
       name: log-volume123123
+```

@@ -1,3 +1,4 @@
+```
 kubectl get namespaces
 kubectl get ns
 
@@ -8,3 +9,4 @@ kubectl run --generator run-pod/v1 --image redis redis -n finance
 kubectl get pods --all-namespaces
 
 db-service.{Namespaces}.svc.cluster.local
+```

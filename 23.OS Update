@@ -1,3 +1,4 @@
+```
 kubectl cordon node01
 
 kubectl drain node01
@@ -16,3 +17,4 @@ kubectl drain
 ReplicationController, ReplicaSet, Job, DaemonSet, StatefulSet
 모든 팟 중 하나라도 위에 포함되지 않으면 강제(--force) 필요
 다른 곳에 배포되지 않음 없어짐
+```

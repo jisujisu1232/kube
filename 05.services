@@ -1,3 +1,4 @@
+```
 kubectl get svc
 
     NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
@@ -17,3 +18,4 @@ kubectl describe kubernetes
           nodePort: 30080
       selector:
         name: simple-webapp
+```

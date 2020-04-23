@@ -1,3 +1,4 @@
+```
 replicaset > pod
 이미 생성된 pod 도 포함할 수있음.
 
@@ -75,3 +76,4 @@ kubectl edit rs new-replica-set
 kubectl scale --replicas 0 rs new-replica-set
 
 kubectl scale --replicas 4 rs new-replica-set
+```

@@ -1,3 +1,4 @@
+```
 kubectl get pod -o wide
 
 kubectl run -generator run-pod/v1 --image nginx nginx --dry-run -o yaml > nginx.yaml
@@ -16,3 +17,4 @@ kubectl delete pod nginx
          name: nginx
 
 스케줄러 고장났을 때 지정해서 배포 가능
+```

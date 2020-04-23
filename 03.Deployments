@@ -1,3 +1,4 @@
+```
 deploy > replicaset > pod
 
 
@@ -29,3 +30,4 @@ kubectl describe deploy frontend-deployment
             - echo Hello Kubernetes! && sleep 3600
 
 kubectl scale deploy httpd-frontend --replicas 5
+```
